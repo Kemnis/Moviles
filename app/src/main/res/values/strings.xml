@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Echko Friends</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    //Area de Menu Lateral derecho (Config orgiginalmente)
+    <string name="action_about">Acerca de...</string>
+
+    //Area de Menu lateral izquierdo
+    <string name="activity_main_drwr_Chat">Chatear</string>
+    <string name="activity_main_drwr_TopSongs">Top Canciones</string>
+    <string name="activity_main_drwr_TopCity">Top Ciudades</string>
+    <string name="activity_main_drwr_Gestures">Gestos</string>
+    <string name="activity_main_drwr_Config">Configuracion</string>
+    //Cabezera de Menu lateral Izquierdo
+    <string name="nav_header_main_Username">Nombre del usuario</string>
+    <string name="nav_header_main_ShwPlayingSong">Mostrar lo que escucho</string>
+    <string name="nav_header_main_Listening">"Nombre Cancion"</string>
+
+    //SignUp Activity
+    <string name="signup_Nickname">Nombre o Apodo:</string>
+    <string name="signup_Email">Correo Electronico:</string>
+    <string name="signup_Password">Contraseña:</string>
+    <string name="signup_Repassword">Repetir Contraseña:</string>
+    <string name="signup_btnBrowse">Examinar</string>
+    <string name="signup_btnSignUp">Registrarse</string>
+    <string name="signup_btnExit">Salir</string>
+
+    //LogIn Activity
+    <string name="login_Nickname">Escribe tu nombre o apodo:</string>
+    <string name="login_Password">Escribe tu contraseña:</string>
+    <string name="login_Session">Guardar credenciales</string>
+
+</resources>

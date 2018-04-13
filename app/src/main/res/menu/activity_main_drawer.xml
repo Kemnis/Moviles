@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:id="@+id/grpChat">
+        <item
+            android:id="@+id/mitChat"
+            android:checkable="false"
+            android:checked="false"
+            android:icon="@drawable/ic_menu_send"
+            android:title="@string/activity_main_drwr_Chat"></item>
+    </group>
+    <group android:id="@+id/grpTopSongs">
+        <item
+            android:id="@+id/mitTopSongs"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/activity_main_drwr_TopSongs" />
+    </group>
+    <group android:id="@+id/grpTopCity">
+        <item
+            android:id="@+id/mitTopCity"
+            android:icon="@android:drawable/ic_dialog_map"
+            android:title="@string/activity_main_drwr_TopCity" />
+    </group>
+    <group android:id="@+id/grpGestures" >
+        <item
+            android:id="@+id/mitGestures"
+            android:icon="@android:drawable/ic_menu_myplaces"
+            android:title="@string/activity_main_drwr_Gestures" />
+    </group>
+    <group android:id="@+id/grpConfig" >
+        <item
+            android:id="@+id/mitConfig"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="@string/activity_main_drwr_Config" />
+    </group>
+
+</menu>
