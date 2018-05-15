@@ -26,7 +26,7 @@ import java.util.List;
  */
 
 public class NetworkingWebservice extends AsyncTask<Object, Integer, Object> {
-    static final String SERVER_PATH = "ip";
+    static final String SERVER_PATH = "http://192.168.16.145/web_service.php";
     static final int TIMEOUT = 3000;
 
     Context m_Context;
@@ -165,10 +165,10 @@ public class NetworkingWebservice extends AsyncTask<Object, Integer, Object> {
             {
                 response.append(rLine);
             }
-        }
-        catch(IOException e)
-        {
+        } catch (IOException e) {
             e.printStackTrace();
-        }return response.toString();
+        }
+
+        return response.toString();
     }
 }

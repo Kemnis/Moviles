@@ -48,8 +48,9 @@ public class SignIn extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 String Nombre = Username.getText().toString();
-                String Contraseña = Password.getText().toString();
-                if(Nombre.isEmpty() || Contraseña.isEmpty()){
+                String Correo = Email.getText().toString();
+                String Contrasena = Password.getText().toString();
+                if(Nombre.isEmpty() || Contrasena.isEmpty()){
                     showToast("Faltaron campos");
                     return;
                 }
@@ -58,7 +59,7 @@ public class SignIn extends AppCompatActivity {
                     showToast("No cuentas con conectividad");
                     return;
                 }
-                new NetworkingWebservice(SignIn.this).execute("signup", new User(Nombre, Contraseña), new NetCallback() {
+                new NetworkingWebservice(SignIn.this).execute("signup", new User(Nombre, Correo, Contrasena), new NetCallback() {
                     @Override
                     public void onWorkFinish(Object data) {
                         final User signupUser = (User) data;

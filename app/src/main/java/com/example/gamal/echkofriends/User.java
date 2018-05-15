@@ -11,27 +11,31 @@ import com.google.gson.Gson;
 public class User {
     private int id;
     private String Nombre;
-    private String Contraseña;
-    private ImageView Perfil;
+    private String Email;
+    private String Contrasena;
 
-    public User(int id, String nombre, String contraseña, ImageView image) {
+    public User(int id, String nombre, String email, String Contrasena) {
         this.id = id;
         Nombre = nombre;
-        Contraseña = contraseña;
-        Perfil = image;
+        Email = email;
+        Contrasena = Contrasena;
     }
-    public User(String nombre, String contraseña, ImageView image) {
+    public User(String nombre, String email, String contrasena) {
         Nombre = nombre;
-        Contraseña = contraseña;
-        Perfil = image;
-    }
-    public User(String nombre, String contraseña) {
-        Nombre = nombre;
-        Contraseña = contraseña;
+        Email = email;
+        Contrasena = contrasena;
     }
     public User()
     {
 
+    }
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public void setEmail(String email) {
+        Email = email;
     }
 
     public int getId() {
@@ -50,20 +54,12 @@ public class User {
         Nombre = nombre;
     }
 
-    public String getContraseña() {
-        return Contraseña;
+    public String getContrasena() {
+        return Contrasena;
     }
 
-    public void setContraseña(String contraseña) {
-        Contraseña = contraseña;
-    }
-
-    public ImageView getPerfil() {
-        return Perfil;
-    }
-
-    public void setPerfil(ImageView perfil) {
-        Perfil = perfil;
+    public void setContrasena(String Contrasena) {
+        Contrasena = Contrasena;
     }
 
     public String toJSON()
