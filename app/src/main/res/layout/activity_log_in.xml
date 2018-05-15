@@ -4,16 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/red"
+    android:background="@color/logoColor"
     tools:context="com.example.gamal.echkofriends.LogIn"
     tools:layout_editor_absoluteY="25dp">
 
     <ImageView
         android:id="@+id/imgUsuario"
         android:layout_width="64dp"
-        android:layout_height="64dp"
+        android:layout_height="0dp"
         android:layout_gravity="center"
-        android:layout_marginBottom="13dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toTopOf="@+id/lblName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,7 +25,7 @@
         android:id="@+id/lblName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="14dp"
+        android:layout_marginBottom="21dp"
         android:text="@string/login_Nickname"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/txtUsername"
@@ -36,18 +37,18 @@
         android:id="@+id/btnLogIn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="171dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="7dp"
         android:text="Entrar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chkSession" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnRegister"
+        app:layout_constraintEnd_toStartOf="@+id/btnRegister"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/txtUsername"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="21dp"
+        android:layout_marginBottom="28dp"
         android:ems="10"
         android:hint="Nombre o Apodo"
         android:inputType="textPersonName"
@@ -60,7 +61,7 @@
         android:id="@+id/txtPassword"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="27dp"
         android:ems="10"
         android:hint="Contraseña"
         android:inputType="textPassword"
@@ -73,11 +74,24 @@
         android:id="@+id/chkSession"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="22dp"
+        android:layout_marginBottom="30dp"
         android:text="@string/login_Session"
-        app:layout_constraintBottom_toTopOf="@+id/btnLogIn"
+        app:layout_constraintBottom_toTopOf="@+id/btnRegister"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtPassword" />
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="178dp"
+        android:layout_marginEnd="5dp"
+        android:text="Register"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnLogIn"
+        app:layout_constraintTop_toBottomOf="@+id/chkSession"
+        tools:text="Register" />
 
 </android.support.constraint.ConstraintLayout>

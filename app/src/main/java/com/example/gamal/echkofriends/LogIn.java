@@ -17,6 +17,7 @@ import android.widget.VideoView;
 
 public class LogIn extends AppCompatActivity {
     Button entrar;
+    Button Register;
     TextView Username;
     TextView Password;
     CheckBox Session;
@@ -26,6 +27,7 @@ public class LogIn extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
         entrar = (Button) findViewById(R.id.btnLogIn);
+        Register = (Button) findViewById(R.id.btnRegister);
         Username = (TextView) findViewById(R.id.txtUsername);
         Password = (TextView) findViewById(R.id.txtPassword);
         Session = (CheckBox) findViewById(R.id.chkSession);
@@ -38,7 +40,17 @@ public class LogIn extends AppCompatActivity {
             }
         });
 
+        Register.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v) {
+                Intent Signin = new Intent(LogIn.this, SignIn.class);
+                startActivity(Signin);
+            }
+        });
+
     }
+
     public void login()
     {
         final String Usuario = Username.getText().toString();
