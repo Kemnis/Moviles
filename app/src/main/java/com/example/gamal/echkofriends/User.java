@@ -13,6 +13,8 @@ public class User {
     private String Nombre;
     private String Email;
     private String Contrasena;
+    private String endpointImg;
+    private String endpointPort;
 
     public User(int id, String nombre, String email, String Contrasena) {
         this.id = id;
@@ -22,6 +24,10 @@ public class User {
     }
     public User(String nombre, String email, String contrasena) {
         Nombre = nombre;
+        Email = email;
+        Contrasena = contrasena;
+    }
+    public User(String email, String contrasena) {
         Email = email;
         Contrasena = contrasena;
     }
@@ -65,5 +71,21 @@ public class User {
     public String toJSON()
     {
         return new Gson().toJson(this);
+    }
+
+    public String getEndpointImg() {
+        return endpointImg;
+    }
+
+    public void setEndpointImg(String endpointImg) {
+        this.endpointImg = endpointImg;
+    }
+
+    public String getEndpointPort() {
+        return endpointPort;
+    }
+
+    public void setEndpointPort(String endpointPort) {
+        this.endpointPort = endpointPort;
     }
 }

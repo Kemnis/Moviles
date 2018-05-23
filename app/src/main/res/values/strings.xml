@@ -28,7 +28,7 @@
     <string name="signup_btnExit">Salir</string>
 
     //LogIn Activity
-    <string name="login_Nickname">Escribe tu nombre o apodo:</string>
+    <string name="login_Nickname">Escribe tu correo:</string>
     <string name="login_Password">Escribe tu contraseña:</string>
     <string name="login_Session">Guardar credenciales</string>
 

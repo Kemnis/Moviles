@@ -24,12 +24,14 @@
             android:title="@string/activity_main_drwr_TopCity" />
     </group>
     <group android:id="@+id/grpGestures" >
+
         <item
             android:id="@+id/mitGestures"
             android:icon="@android:drawable/ic_menu_myplaces"
             android:title="@string/activity_main_drwr_Gestures" />
-    </group>
+   </group>
     <group android:id="@+id/grpConfig" >
+
         <item
             android:id="@+id/mitConfig"
             android:icon="@drawable/ic_menu_manage"

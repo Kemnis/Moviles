@@ -15,20 +15,20 @@
         android:layout_gravity="center"
         android:layout_marginBottom="20dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/lblName"
+        app:layout_constraintBottom_toTopOf="@+id/lblEmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/logo" />
 
     <TextView
-        android:id="@+id/lblName"
+        android:id="@+id/lblEmail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="21dp"
         android:text="@string/login_Nickname"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/txtUsername"
+        app:layout_constraintBottom_toTopOf="@+id/txtEmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgUsuario" />
@@ -45,17 +45,17 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/txtUsername"
+        android:id="@+id/txtEmail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="28dp"
         android:ems="10"
-        android:hint="Nombre o Apodo"
+        android:hint="Correo"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/txtPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblName" />
+        app:layout_constraintTop_toBottomOf="@+id/lblEmail" />
 
     <EditText
         android:id="@+id/txtPassword"
@@ -68,7 +68,7 @@
         app:layout_constraintBottom_toTopOf="@+id/chkSession"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtUsername" />
+        app:layout_constraintTop_toBottomOf="@+id/txtEmail" />
 
     <CheckBox
         android:id="@+id/chkSession"

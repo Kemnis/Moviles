@@ -26,7 +26,7 @@ import java.util.List;
  */
 
 public class NetworkingWebservice extends AsyncTask<Object, Integer, Object> {
-    static final String SERVER_PATH = "http://192.168.16.145/web_service.php";
+    static final String SERVER_PATH = "http://192.168.0.23//web_service.php";
     static final int TIMEOUT = 3000;
 
     Context m_Context;
@@ -51,11 +51,17 @@ public class NetworkingWebservice extends AsyncTask<Object, Integer, Object> {
         String action = (String) params[0];
         if (action.equals("signup"))
         {
-            User signupUser = signup((User) params[1]);
+            String Result = signup((User) params[1]);
             //Llamamos a nuestro callback
             NetCallback netCallback = (NetCallback) params[2];
-            netCallback.onWorkFinish(signupUser);
-        } else if (action.equals("getImages"))
+            netCallback.onWorkFinish(Result);
+        }
+        else if (action.equals("log_in")){
+            String Result = login((User) params[1]);
+            //Llamamos a nuestro callback
+            NetCallback netCallback = (NetCallback) params[2];
+            netCallback.onWorkFinish(Result);
+        }else if (action.equals("getImages"))
         {
             List<MyImage> imageList =getImages();
             //Llamamos a nuestro callback+
@@ -71,9 +77,52 @@ public class NetworkingWebservice extends AsyncTask<Object, Integer, Object> {
         m_ProgressDialog.dismiss();
     }
 
-    private User signup(User user)
+    private String signup(User user)
     {
+        String message="";
         String postParams = "&action=signup&userJson=" + user.toJSON();
+        URL url = null;
+        HttpURLConnection conn = null;
+
+        try {
+            url = new URL(SERVER_PATH);
+            conn = (HttpURLConnection)url.openConnection();
+            conn.setDoInput(true);
+            conn.setDoOutput(true);
+            conn.setConnectTimeout(TIMEOUT);
+            conn.setRequestProperty("Content-Type","application/x-www-form-urlencoded");
+            conn.setFixedLengthStreamingMode(postParams.getBytes().length);
+
+            OutputStream out = new BufferedOutputStream(conn.getOutputStream());
+            out.write(postParams.getBytes());
+            out.flush();
+            out.close();
+
+            int responseCode = conn.getResponseCode();
+            Log.w("RESPONSE CODE","" + responseCode);
+
+            InputStream in = new BufferedInputStream(conn.getInputStream());
+            String responseString = inputStreamToString(in);
+            try{
+                JSONObject jsonobject = new JSONObject(responseString);
+                boolean sucess = jsonobject.getBoolean("sucess");
+                boolean error = jsonobject.getBoolean("error");
+                message= jsonobject.getString("message");
+            } catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        catch(IOException e) {
+            e.printStackTrace();
+        }
+        return message;
+    }
+
+    public String login(User user)
+    {
+        String message="";
+        String postParams = "&action=login&userJson=" + user.toJSON();
         URL url = null;
         HttpURLConnection conn = null;
         try {
@@ -97,9 +146,14 @@ public class NetworkingWebservice extends AsyncTask<Object, Integer, Object> {
             String responseString = inputStreamToString(in);
             try{
                 JSONObject jsonobject = new JSONObject(responseString);
-                int errorCode = jsonobject.getInt("error_code");
-                int insertId= jsonobject.getInt("id");
-                user.setId(insertId);
+                boolean sucess = jsonobject.getBoolean("sucess");
+                boolean error = jsonobject.getBoolean("error");
+                if (sucess==true) {
+                    JSONObject welcome = jsonobject.getJSONObject("message");
+                    message = welcome.getString("Nombre");
+                }
+                else
+                    message= jsonobject.getString("message");
             } catch(Exception e)
             {
                 e.printStackTrace();
@@ -108,7 +162,7 @@ public class NetworkingWebservice extends AsyncTask<Object, Integer, Object> {
         catch(IOException e) {
             e.printStackTrace();
         }
-        return user;
+        return message;
     }
 
     public List<MyImage> getImages(){
