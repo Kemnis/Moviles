@@ -16,5 +16,7 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
+    <!-- Para Facebook -->
+    <!-- <string name="facebook_app_id">208998669733611</string>
+    <string name="fb_login_protocol_scheme">fb208998669733611</string> -->
 </resources>

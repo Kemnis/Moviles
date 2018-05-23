@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.gamal.echkofriends.Fragment.Fragment_MapView;
 import com.example.gamal.echkofriends.Fragment.Fragment_ciudad;
 import com.example.gamal.echkofriends.Fragment.Fragment_inbox;
 import com.example.gamal.echkofriends.Fragment.Fragment_content_main;
@@ -88,7 +89,7 @@ public class MainActivity extends AppCompatActivity
                 ChangeFragmment(new Fragment_content_main(),"Fragment_main");
                 break;
             case R.id.mitTopCity:
-                ChangeFragmment(new Fragment_ciudad(),"Fragment_ciudad");
+                ChangeFragmment(new Fragment_MapView(),"Fragment_MapView");
                 break;
             case R.id.mitGestures:
                 break;

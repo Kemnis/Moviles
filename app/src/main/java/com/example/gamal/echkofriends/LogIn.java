@@ -1,5 +1,6 @@
 package com.example.gamal.echkofriends;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -15,7 +16,17 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.AccessToken;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
+
 import org.json.JSONObject;
+
+import java.util.Arrays;
 
 public class LogIn extends AppCompatActivity {
     Button entrar;
@@ -23,6 +34,12 @@ public class LogIn extends AppCompatActivity {
     TextView Email;
     TextView Password;
     CheckBox Session;
+    LoginButton LB;
+    LoginManager LM ;
+    AccessToken accessToken;
+    private static final String EMAIL = "email";
+
+    CallbackManager cbm = CallbackManager.Factory.create();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +48,30 @@ public class LogIn extends AppCompatActivity {
         entrar = (Button) findViewById(R.id.btnLogIn);
         Register = (Button) findViewById(R.id.btnRegister);
         Session = (CheckBox) findViewById(R.id.chkSession);
+        //Facebook
+        LB =(LoginButton) findViewById(R.id.loginButton);
+        LB.setReadPermissions(Arrays.asList(EMAIL));
+        accessToken = AccessToken.getCurrentAccessToken();
+        boolean isLoggedIn = accessToken != null && !accessToken.isExpired();
+
+        // Callback registration
+        LB.registerCallback(cbm, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                // App code
+            }
+
+            @Override
+            public void onCancel() {
+                // App code
+            }
+
+            @Override
+            public void onError(FacebookException exception) {
+                // App code
+            }
+        });
+
 
         entrar.setOnClickListener(new View.OnClickListener()
         {
@@ -47,6 +88,27 @@ public class LogIn extends AppCompatActivity {
                 startActivity(Signin);
             }
         });
+        LM.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile"));
+
+        cbm = CallbackManager.Factory.create();
+
+        LM.getInstance().registerCallback(cbm,
+                new FacebookCallback<LoginResult>() {
+                    @Override
+                    public void onSuccess(LoginResult loginResult) {
+                        // App code
+                    }
+
+                    @Override
+                    public void onCancel() {
+                        // App code
+                    }
+
+                    @Override
+                    public void onError(FacebookException exception) {
+                        // App code
+                    }
+                });
 
     }
 
@@ -93,4 +155,7 @@ public class LogIn extends AppCompatActivity {
     void showToast(String msg){
         Toast.makeText(this,msg, Toast.LENGTH_SHORT).show();
     }
+
+
+
 }
