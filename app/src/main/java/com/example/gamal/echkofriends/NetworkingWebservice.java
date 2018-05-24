@@ -27,7 +27,7 @@ import java.util.List;
 
 public class NetworkingWebservice extends AsyncTask<Object, Integer, Object> {
     static final String SERVER_PATH = "http://192.168.0.23//web_service.php";
-    static final int TIMEOUT = 3000;
+    static final int TIMEOUT =3000;
 
     Context m_Context;
     ProgressDialog m_ProgressDialog;

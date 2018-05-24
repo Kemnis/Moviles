@@ -32,7 +32,6 @@
     <string name="login_Password">Escribe tu contraseña:</string>
     <string name="login_Session">Guardar credenciales</string>
 
-    <string name="facebook_app_id">208998669733611</string>
-    <string name="fb_login_protocol_scheme">fb208998669733611</string>
+
 
 </resources>

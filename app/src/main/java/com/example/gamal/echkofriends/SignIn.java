@@ -44,6 +44,7 @@ public class SignIn extends AppCompatActivity {
     Button Examinar;
     Button Salir;
     SignIn activty;
+    String Image64;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,6 +72,7 @@ public class SignIn extends AppCompatActivity {
                 String Nombre = Username.getText().toString();
                 String Correo = Email.getText().toString();
                 String Contrasena = Password.getText().toString();
+                String imagen = Image64;//"iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAAnElEQVR42u3RAQ0AAAgDoJvc6FrDOahAJdPhjBIiBCFCECIEIUIQIkSIEIQIQYgQhAhBiBCEIEQIQoQgRAhChCAEIUIQIgQhQhAiBCEIEYIQIQgRghAhCEGIEIQIQYgQhAhBCEKEIEQIQoQgRAhCECIEIUIQIgQhQhCCECEIEYIQIQgRghCECEGIEIQIQYgQhAgRIgQhQhAiBCHfLQGKlZ3aNUP0AAAAAElFTkSuQmCC";
                 if(Correo.isEmpty() || Contrasena.isEmpty()){
                     showToast("Faltaron campos");
                     return;
@@ -80,7 +82,7 @@ public class SignIn extends AppCompatActivity {
                     showToast("No cuentas con conectividad");
                     return;
                 }
-                new NetworkingWebservice(SignIn.this).execute("signup", new User(Nombre, Correo, Contrasena), new NetCallback() {
+                new NetworkingWebservice(SignIn.this).execute("signup", new User(Nombre, Correo, Contrasena,imagen), new NetCallback() {
                     @Override
                     public void onWorkFinish(Object data) {
                         final String signupUser = (String) data;
@@ -97,6 +99,7 @@ public class SignIn extends AppCompatActivity {
                         });
                     }
                 });
+
             }
         });
 
@@ -129,11 +132,16 @@ public class SignIn extends AppCompatActivity {
             Bitmap bitmap;
             bitmap = (Bitmap)data.getExtras().get("data");
             if(bitmap!=null)
+            {
                 m_imageView.setImageBitmap(bitmap);
+                Image64 = UtileriaImagen.encodeBase64(bitmap);
+            }
 
         } else if(resultCode == RESULT_OK && API_Handler.IMAGE_STORAGE == requestCode)
         {
             Uri uri = data.getData();
+
+            //Marshmallow
             String path = API_Handler.getRealPathFromURI_BelowAPI11(getApplicationContext(),uri);
             // Decode image size
             BitmapFactory.Options options = new BitmapFactory.Options();

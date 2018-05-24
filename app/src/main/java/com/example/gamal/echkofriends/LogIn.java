@@ -55,7 +55,7 @@ public class LogIn extends AppCompatActivity {
         boolean isLoggedIn = accessToken != null && !accessToken.isExpired();
 
         // Callback registration
-        LB.registerCallback(cbm, new FacebookCallback<LoginResult>() {
+        /*LB.registerCallback(cbm, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 // App code
@@ -70,7 +70,7 @@ public class LogIn extends AppCompatActivity {
             public void onError(FacebookException exception) {
                 // App code
             }
-        });
+        });*/
 
 
         entrar.setOnClickListener(new View.OnClickListener()

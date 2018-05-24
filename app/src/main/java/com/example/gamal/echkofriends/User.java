@@ -14,18 +14,34 @@ public class User {
     private String Email;
     private String Contrasena;
     private String endpointImg;
+    public String Base64Image;
     private String endpointPort;
+
+    public User(String base64Image) {
+        Base64Image = base64Image;
+    }
+
+    public String getBase64Image() {
+        return Base64Image;
+    }
+
+    public void setBase64Image(String base64Image) {
+        Base64Image = base64Image;
+    }
+
 
     public User(int id, String nombre, String email, String Contrasena) {
         this.id = id;
         Nombre = nombre;
         Email = email;
         Contrasena = Contrasena;
+
     }
-    public User(String nombre, String email, String contrasena) {
+    public User(String nombre, String email, String contrasena, String Imagen) {
         Nombre = nombre;
         Email = email;
         Contrasena = contrasena;
+        Base64Image = Imagen;
     }
     public User(String email, String contrasena) {
         Email = email;
